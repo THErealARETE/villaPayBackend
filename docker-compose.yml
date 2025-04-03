@@ -1,0 +1,28 @@
+services:
+  api:
+    container_name: giveaway_villa_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - '${PORT}:${PORT}'
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+  db:
+    container_name: giveaway_villa_db
+    image: postgres:17-alpine
+    ports:
+      - '${DB_HOST_PORT}:${DB_PORT}'
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+volumes:
+  data:
