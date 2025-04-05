@@ -11,9 +11,10 @@ import {
 import { HttpExceptionFilter } from '@/common/filters';
 import { CommonModule } from '@/common/common.module';
 import { DatabaseModule } from '@/database/database.module';
+import { RouterModule } from '@/router/router.module';
 
 @Module({
-  imports: [CommonModule, DatabaseModule],
+  imports: [CommonModule, DatabaseModule, RouterModule],
   controllers: [AppController],
   providers: [
     AppService,

@@ -1,0 +1,1 @@
+export const PASSWORD_OTP_EXPIRATION_MINUTES = 12;
